@@ -17,14 +17,23 @@ main {
   padding: 0.125in; /* Bleed Area */
   width: 3.75in;
 }
+/* Will try using this after I put in content. */
+.matte::before {
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
 /* Physical Business Card */
 main > div {
-  box-shadow: 0 1px 0.125in;
+  background-color: #D6E3EF; /* Matte version of soft pastel light blue */
+  border-radius: 0.1in;
+  box-sizing: border-box;
+  box-shadow: 0 0.01in 0.125in;
   color: #003366; /* Navy blue */
   display: flex; /* default is horizontal */
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 8pt;
   height: 100%;
+  padding: 0.125in;
   width: 100%;
 }
 </style>

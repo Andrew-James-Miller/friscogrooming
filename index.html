@@ -12,14 +12,33 @@ Version 1.0.0 of 2025-09-11
 body {
     background-color: #E6F3FF; /* Soft pastel light blue */
 }
-/* Max Business Card area. */
-section {
-  box-shadow: 0 5px 0.125in;
+/* Business Card Layout, 3.5in (w) by 2in (h) */
+main {
+  height: 2.25in;
+  padding: 0.125in; /* Bleed Area */
+  width: 3.75in;
+}
+/* Physical Business Card */
+main > div {
+  box-shadow: 0 1px 0.125in;
   color: #003366; /* Navy blue */
+  display: flex; /* default is horizontal */
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
-  height: 2in;
-  width: 3.5in;
+  height: 100%;
+  width: 100%;
 }
 </style>
-<section></section>
+<!-- Extended Business Card with bleed area -->
+<main>
+  <!-- Physical Business Card -->
+  <div>
+    <!-- Left Side -->
+    <div style="width:60%">
+      <!-- small dog -->
+      <img src="data:image/webp;base64,UklGRsQDAABXRUJQVlA4TLcDAAAvL8ALEHVIsa1t2ZZ9fe+Hu7tk6h9JXp1IYgwkZwRuETKNIWjWOTjV3d/nSyzS/QssB5IkmVY+m98273+/ZRxJUpsG5L13L+WfJJJt2zb26Hz4bSu2bdt28puxbdu27W5Sdq/a9QDGI+ifgPqrEjgkEI0COOACqwo0ZCACvrCBAAOYxf44SM1giR0sowuRKA/tGEMfjKjBZCgDH9GoQD0yIW0COtLRicJxFKAOLoEDDFBAIQQh8OAGBFzkYxFGOPU2iQj0IBPMwOmQ1S/OQhhqEQoo8OGJDnB7+o9yDMIfMAl5CAHyC0NIUGIZJEBNRxTG/vcEBdKBVcECR3AD/DRYwAHUQgV8qkIsdNUz0tAUiFWIQlkFWnAJlt+BisIQGYKAwAI5AGCogkNfk+iAXxXSYANCiA7hIbYDryqgwGsAVoGISbggFvKA9FWwRnPgDiBCCUpAAysQ64fgoRzJAQl2mETPVGAC+kcgqhCJkyAFwB1rUAF9nxbUV1Vr8TavxJ9BUY6veIQVshGHyH+AlsjACjRQADCAn/gwRHZ9vXof7gft/rpVHCgKC1TjD15DjFpIAW1BhjWIqIMF5PiN+wEstOIJPqIctPkUn57m4ftdr5xOE8iNqgphGyl7utwmru3vww1ZIS3E4wOewgHwGfrj7XN6b7MfzWQH9u2QsJjBl/PW9nR9GQAQQIIYaIIHHGtX09otSmI7BgbQ2wVXbEEBH3DBgBdiQwIcIEIJ2hAcCIARDHzMYLSLjI3VZcPiLGbDH7GbqqLt4GJcnB6HOQzVSMIdlfBZFgfFzefz7Mh++jfWlp82t9Xn46fN/Oj/v1idRDm24DgSMMAXzGHI5Xe+39WF52o+tZvMV/aL+dR5Mt/9Pk8WRaECqVCNAhhoAW0WCJQ3rm/TlePxsKUp73Z21emhoTu+er7KO8phiRZQRwB2KAcUMqaFXNmFnAE6ULhDg1zgqAkWrWAJ90IamquAgwWoKqBVqArWrUJr2IEDJjASiDUEH0IFpUAaQA9YBTr24Noq1IVOHEOLClhVBy0kIR1UpCApkAquOEZeK4SiGcOIHB8HAIUaRcEe8iAHFAphgqFVIQirSIIEjcABU4gqpCC1Ah0N41A2K/igpVAODwD8oSoY4AZAOIqgRWw7hKMtsBEMIyDwsYxqzIE1BEE9AmCEqh1CsY7hsIA6EDvYYQAxGBpADxT04gSbyGoHFLYhCl1YQCVaYASgJjSjEsvQBWEH2q6qQEc6DCgEvyBGMbSIA6n+wAIA" />
+    </div>
+    <!-- Right Side -->
+    <div style="width:40%"></div>
+  </div>
+</main>

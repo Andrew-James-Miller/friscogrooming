@@ -5,64 +5,115 @@ Website https://www.andrewjamesmiller.org/
 
 (c) Copyright 2025 Andrew J. Miller. All rights reserved.
 -->
-<!-- The dimensions are not accurate. -->
-<!--<meta http-equiv=refresh content=1>-->
+<!-- On this webpage, 18 px is 0.125 (1/8) inches. Thus 144 px is 1 inch. I made this decision because I was not able to find a way to check the dimensions of the user's device, and this is close on my personal laptop, and rounded to a whole number for a simpler construction. -->
+<meta http-equiv=refresh content=1 />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
-h1 {
-  font-size: 16pt;
-}
-h2 {
-  font-size: 10pt;
+html {
+  all: unset;
 }
 /* The entire page is the "business card". */
 body {
-    background-color: #E6F3FF; /* Soft pastel light blue */
+  margin: unset;
+  background-color: #E6F3FF; /* Soft pastel light blue */
 }
 /* Business Card Layout, scaled up to render as 3.5in (w) by 2in (h) */
-main {
-  height: 3.125in;
-  padding: 0.195in; /* Bleed Area scaled up */
-  width: 5.5in;
+.main {
+  height: 324px; /* 2.25 in */
+  padding: 18px; /* Bleed Area */
+  width: 540px; /* 3.75 in */
+}
+/* Physical Business Card */
+.main > div {
+  background-color: #D6E3EF; /* Matte version of soft pastel light blue */
+  border-radius: 18px; /* 0.125 in */
+  box-sizing: border-box;
+  box-shadow: 0 1.5px 18px;
+  color: #003366; /* Navy blue */
+  display: flex; /* default is horizontal */
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 8px;
+  height: 100%;
+  padding: 18px; /* 0.125 in */
+  width: 100%;
 }
 /* Will try using this after I put in content. */
 .matte::before {
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
-/* Physical Business Card */
-main > div {
-  background-color: #D6E3EF; /* Matte version of soft pastel light blue */
-  border-radius: 0.195in;
-  box-sizing: border-box;
-  box-shadow: 0 0.016in 0.195in;
-  color: #003366; /* Navy blue */
-  display: flex; /* default is horizontal */
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 12.5pt;
-  height: 100%;
-  padding: 0.195in;
-  width: 100%;
+/* 0.125 in from top */
+.logo {
+  height: 75px; /* 0.5 in */
+  margin-bottom: 21.6px; /* 0.15 in */
+  width: 75px; /* 0.5 in */
+}
+/* 0.725 in from top */
+.business {
+  font-size: 25px;
+  font-weight: bold;
+  height: 28.8px; /* 0.2 in */
+  margin-bottom: 28.8px; /* 0.2 in */
+  text-transform: uppercase;
+}
+/* 1.075 in from top */
+.tagline {
+  color: #FF69B4; /* Pink */
+  font-size: 20px;
+  height: 43.2px; /* 0.3 in */
+  margin-bottom: 28.8px; /* 0.2 in */
+}
+/* 1.425 in from top */
+.name_and_title {
+  height: 43.2px; /* 0.3 in */
+  margin-top: auto;
+}
+.name {
+  font-size:20px;
+  font-weight:bold;
+}
+.title {
+  font-size:16px;
+}
+.phone {
+  font-size: 16px
+}
+.email {
+  font-size: 16px
+}
+.online_presence {
+  font-size: 9px
+}
+.placeholder_box {
+  align-self: end;
+  box-shadow: 0 1.5px 18px;
+  height: 43px; /* 0.3 in */
+  margin-top: auto;
+  width: 43px; /* 0.3 in */
 }
 </style>
 <!-- Extended Business Card with bleed area -->
-<main>
+<div class="main">
   <!-- Physical Business Card -->
   <div>
     <!-- Left Side -->
-    <div style="display:flex;flex-direction:column;gap:0.156in;width:60%">
+    <div style="display:flex;flex-direction:column;width:60%;">
       <!-- small dog -->
-      <img style="height:0.5in;width:0.5in;" src="data:image/webp;base64,UklGRsQDAABXRUJQVlA4TLcDAAAvL8ALEHVIsa1t2ZZ9fe+Hu7tk6h9JXp1IYgwkZwRuETKNIWjWOTjV3d/nSyzS/QssB5IkmVY+m98273+/ZRxJUpsG5L13L+WfJJJt2zb26Hz4bSu2bdt28puxbdu27W5Sdq/a9QDGI+ifgPqrEjgkEI0COOACqwo0ZCACvrCBAAOYxf44SM1giR0sowuRKA/tGEMfjKjBZCgDH9GoQD0yIW0COtLRicJxFKAOLoEDDFBAIQQh8OAGBFzkYxFGOPU2iQj0IBPMwOmQ1S/OQhhqEQoo8OGJDnB7+o9yDMIfMAl5CAHyC0NIUGIZJEBNRxTG/vcEBdKBVcECR3AD/DRYwAHUQgV8qkIsdNUz0tAUiFWIQlkFWnAJlt+BisIQGYKAwAI5AGCogkNfk+iAXxXSYANCiA7hIbYDryqgwGsAVoGISbggFvKA9FWwRnPgDiBCCUpAAysQ64fgoRzJAQl2mETPVGAC+kcgqhCJkyAFwB1rUAF9nxbUV1Vr8TavxJ9BUY6veIQVshGHyH+AlsjACjRQADCAn/gwRHZ9vXof7gft/rpVHCgKC1TjD15DjFpIAW1BhjWIqIMF5PiN+wEstOIJPqIctPkUn57m4ftdr5xOE8iNqgphGyl7utwmru3vww1ZIS3E4wOewgHwGfrj7XN6b7MfzWQH9u2QsJjBl/PW9nR9GQAQQIIYaIIHHGtX09otSmI7BgbQ2wVXbEEBH3DBgBdiQwIcIEIJ2hAcCIARDHzMYLSLjI3VZcPiLGbDH7GbqqLt4GJcnB6HOQzVSMIdlfBZFgfFzefz7Mh++jfWlp82t9Xn46fN/Oj/v1idRDm24DgSMMAXzGHI5Xe+39WF52o+tZvMV/aL+dR5Mt/9Pk8WRaECqVCNAhhoAW0WCJQ3rm/TlePxsKUp73Z21emhoTu+er7KO8phiRZQRwB2KAcUMqaFXNmFnAE6ULhDg1zgqAkWrWAJ90IamquAgwWoKqBVqArWrUJr2IEDJjASiDUEH0IFpUAaQA9YBTr24Noq1IVOHEOLClhVBy0kIR1UpCApkAquOEZeK4SiGcOIHB8HAIUaRcEe8iAHFAphgqFVIQirSIIEjcABU4gqpCC1Ah0N41A2K/igpVAODwD8oSoY4AZAOIqgRWw7hKMtsBEMIyDwsYxqzIE1BEE9AmCEqh1CsY7hsIA6EDvYYQAxGBpADxT04gSbyGoHFLYhCl1YQCVaYASgJjSjEsvQBWEH2q6qQEc6DCgEvyBGMbSIA6n+wAIA" />
-      <span style="font-size:25pt;margin-bottom:0.078in;">Frisco Grooming</span>
-      <span style="font-size:15.6pt;margin-bottom:0.156in;">Small Dogs Only</span>
-      <span style="font-size:15.6pt;">First Last</span>
-      20 years of experience
+      <img class="logo" src="data:image/webp;base64,UklGRsQDAABXRUJQVlA4TLcDAAAvL8ALEHVIsa1t2ZZ9fe+Hu7tk6h9JXp1IYgwkZwRuETKNIWjWOTjV3d/nSyzS/QssB5IkmVY+m98273+/ZRxJUpsG5L13L+WfJJJt2zb26Hz4bSu2bdt28puxbdu27W5Sdq/a9QDGI+ifgPqrEjgkEI0COOACqwo0ZCACvrCBAAOYxf44SM1giR0sowuRKA/tGEMfjKjBZCgDH9GoQD0yIW0COtLRicJxFKAOLoEDDFBAIQQh8OAGBFzkYxFGOPU2iQj0IBPMwOmQ1S/OQhhqEQoo8OGJDnB7+o9yDMIfMAl5CAHyC0NIUGIZJEBNRxTG/vcEBdKBVcECR3AD/DRYwAHUQgV8qkIsdNUz0tAUiFWIQlkFWnAJlt+BisIQGYKAwAI5AGCogkNfk+iAXxXSYANCiA7hIbYDryqgwGsAVoGISbggFvKA9FWwRnPgDiBCCUpAAysQ64fgoRzJAQl2mETPVGAC+kcgqhCJkyAFwB1rUAF9nxbUV1Vr8TavxJ9BUY6veIQVshGHyH+AlsjACjRQADCAn/gwRHZ9vXof7gft/rpVHCgKC1TjD15DjFpIAW1BhjWIqIMF5PiN+wEstOIJPqIctPkUn57m4ftdr5xOE8iNqgphGyl7utwmru3vww1ZIS3E4wOewgHwGfrj7XN6b7MfzWQH9u2QsJjBl/PW9nR9GQAQQIIYaIIHHGtX09otSmI7BgbQ2wVXbEEBH3DBgBdiQwIcIEIJ2hAcCIARDHzMYLSLjI3VZcPiLGbDH7GbqqLt4GJcnB6HOQzVSMIdlfBZFgfFzefz7Mh++jfWlp82t9Xn46fN/Oj/v1idRDm24DgSMMAXzGHI5Xe+39WF52o+tZvMV/aL+dR5Mt/9Pk8WRaECqVCNAhhoAW0WCJQ3rm/TlePxsKUp73Z21emhoTu+er7KO8phiRZQRwB2KAcUMqaFXNmFnAE6ULhDg1zgqAkWrWAJ90IamquAgwWoKqBVqArWrUJr2IEDJjASiDUEH0IFpUAaQA9YBTr24Noq1IVOHEOLClhVBy0kIR1UpCApkAquOEZeK4SiGcOIHB8HAIUaRcEe8iAHFAphgqFVIQirSIIEjcABU4gqpCC1Ah0N41A2K/igpVAODwD8oSoY4AZAOIqgRWw7hKMtsBEMIyDwsYxqzIE1BEE9AmCEqh1CsY7hsIA6EDvYYQAxGBpADxT04gSbyGoHFLYhCl1YQCVaYASgJjSjEsvQBWEH2q6qQEc6DCgEvyBGMbSIA6n+wAIA" />
+      <span class="business">Tiny Paws Grooming</span class="title">
+      <span class="tagline">Small Dogs Only – Expert Pampering for Your Little Furball!</span>
+      <span class="name_and_title">
+        <span class="name">Jane Doe</span><br />
+        <span class="title">Certified Small Dog Groomer</span>
+      </span>
     </div>
     <!-- Right Side -->
-    <div style="display:flex;flex-direction:column;gap:0.156in;width:40%">
-      <span style="font-size:15.6pt;">Phone: <a href="tel:+15551234567">(555) 123-4567</a></span>
-      <span style="font-size:15.6pt;">Email: <a href="mailto:firstlast@gmail.com">firstlast@gmail.com</a></span>
-      <span style="font-size:14pt;"><a href>www.friscogrooming.com</a> | <a href="https://www.instagram.com/friscogrooming">@friscogrooming</a></span>
-      Frisco, Texas
+    <div style="display:flex;flex-direction:column;width:40%;text-align:right;">
+      <a class="phone" href="tel:+15551234567">(555) 123-4567</a>
+      <a class="email" href="mailto:info@tinypawsgrooming.com">info@tinypawsgrooming.com</a>
+      <span class="online_presence"><a href="https://www.tinypawsgrooming.com">www.tinypawsgrooming.com</a> | <a href="https://www.instagram.com/TinyPawsGroom">@TinyPawsGroom</a></span>
+      <span class="address">Frisco, Texas</span>
+      <span class="placeholder_box"></span>
     </div>
   </div>
-</main>
+</div>

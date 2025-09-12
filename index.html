@@ -9,6 +9,21 @@ Website https://www.andrewjamesmiller.org/
 <meta http-equiv=refresh content=1 />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
+:root {
+  --debug-border: 1px dashed black;
+  --point-one-inch: calc(var(--inch) / 10);
+  --eighth-inch: calc(var(--inch) / 8);
+  --half-inch: calc(var(--inch) / 2);
+  --inch: calc(var(--physical-business-card_height) / 2);
+  --business-card-canvas-height: calc(var(--inch) * 2.25); /* 2.25 in */
+  --business-card-canvas-width: calc(var(--inch) * 3.75); /* 3.75 in */
+  --physical-business-card_width: calc(var(--inch) * 3.5); /* 3.5 in */
+  --physical-business-card_height: 318px; /* 2 in */
+  --font-size-biggest: 25px;
+  --font-size-medium: 19px;
+  --font-size-regular: 16px;
+  --font-size-small: 9px;
+}
 html {
   all: unset;
 }
@@ -17,25 +32,49 @@ body {
   margin: unset;
   background-color: #E6F3FF; /* Soft pastel light blue */
 }
-/* Business Card Layout, scaled up to render as 3.5in (w) by 2in (h) */
-.main {
-  height: 324px; /* 2.25 in */
-  padding: 18px; /* Bleed Area */
-  width: 540px; /* 3.75 in */
+div.business_card_canvas {
+  height: var(--business-card-canvas-height); /* 2.25 in */
+  padding: var(--eighth-inch); /* unused canvas area */
+  width: var(--business-card-canvas-width); /* 3.75 in */
+}
+/* Business Card Bleed Area */
+div.business_card_canvas > div.business_card_with_bleed_area {
+  /* moving to physical business card only because this is a webpage
+  background-color: #D6E3EF; */ /* Matte version of soft pastel light blue */
+  box-sizing: border-box; /* take padding into account */
+  height: 100%;
+  padding: var(--eighth-inch); /* Bleed Area */
+  width: 100%;
 }
 /* Physical Business Card */
-.main > div {
+div.business_card_canvas > div.business_card_with_bleed_area > div.physical_business_card {
   background-color: #D6E3EF; /* Matte version of soft pastel light blue */
-  border-radius: 18px; /* 0.125 in */
-  box-sizing: border-box;
-  box-shadow: 0 1.5px 18px;
+  border-radius: var(--eighth-inch);
+  box-sizing: border-box; /* take padding into account */
+  box-shadow: 0 1.5px var(--eighth-inch);
   color: #003366; /* Navy blue */
+  column-gap: var(--eighth-inch);
   display: flex; /* default is horizontal */
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 8px;
+  font-size: var(--font-size-regular);
   height: 100%;
-  padding: 18px; /* 0.125 in */
+  padding: var(--eighth-inch);
   width: 100%;
+}
+/* Left Column */
+div.business_card_canvas > div.business_card_with_bleed_area > div.physical_business_card > div.left_side {
+  display:flex;
+  flex-direction:column;
+  row-gap: var(--point-one-inch);
+  width:60%;
+}
+/* Right Column */
+div.business_card_canvas > div.business_card_with_bleed_area > div.physical_business_card > div.right_side {
+  display:flex;
+  flex-direction:column;
+  row-gap: var(--point-one-inch);
+  text-align:right;
+  width:40%;
 }
 /* Will try using this after I put in content. */
 .matte::before {
@@ -44,76 +83,79 @@ body {
 }
 /* 0.125 in from top */
 .logo {
-  height: 75px; /* 0.5 in */
-  margin-bottom: 21.6px; /* 0.15 in */
-  width: 75px; /* 0.5 in */
+  height: var(--half-inch);
+  margin-bottom: calc(var(--point-one-inch) * 0.5);
+  width: var(--half-inch);
 }
 /* 0.725 in from top */
 .business {
-  font-size: 25px;
+  font-size: var(--font-size-biggest);
   font-weight: bold;
-  height: 28.8px; /* 0.2 in */
-  margin-bottom: 28.8px; /* 0.2 in */
+  height: calc(var(--point-one-inch) * 2);
+  margin-bottom: var(--point-one-inch);
   text-transform: uppercase;
 }
 /* 1.075 in from top */
 .tagline {
   color: #FF69B4; /* Pink */
-  font-size: 20px;
-  height: 43.2px; /* 0.3 in */
-  margin-bottom: 28.8px; /* 0.2 in */
+  font-size: var(--font-size-medium);
+  height: calc(var(--point-one-inch) * 3);
+  margin-bottom: var(--point-one-inch);
 }
 /* 1.425 in from top */
 .name_and_title {
-  height: 43.2px; /* 0.3 in */
-  margin-top: auto;
+  box-sizing: border-box; /* take padding into account */
+  display: flex;
+  flex-direction: column;
+  height: calc(var(--point-one-inch) * 3);
+  margin-top: auto; /* snap to bottom */
 }
 .name {
-  font-size:20px;
+  font-size:var(--font-size-medium);
   font-weight:bold;
 }
 .title {
-  font-size:16px;
+  font-size:var(--font-size-regular);
 }
 .phone {
-  font-size: 16px
+  font-size: var(--font-size-regular);
 }
 .email {
-  font-size: 16px
+  font-size: var(--font-size-regular);
 }
 .online_presence {
-  font-size: 9px
+  font-size: var(--font-size-small);
+}
+.address {
+  font-size: var(--font-size-small);
 }
 .placeholder_box {
   align-self: end;
-  box-shadow: 0 1.5px 18px;
-  height: 43px; /* 0.3 in */
+  height: calc(var(--point-one-inch) * 3);
   margin-top: auto;
-  width: 43px; /* 0.3 in */
+  width: calc(var(--point-one-inch) * 3);
 }
 </style>
-<!-- Extended Business Card with bleed area -->
-<div class="main">
-  <!-- Physical Business Card -->
-  <div>
-    <!-- Left Side -->
-    <div style="display:flex;flex-direction:column;width:60%;">
-      <!-- small dog -->
-      <img class="logo" src="data:image/webp;base64,UklGRsQDAABXRUJQVlA4TLcDAAAvL8ALEHVIsa1t2ZZ9fe+Hu7tk6h9JXp1IYgwkZwRuETKNIWjWOTjV3d/nSyzS/QssB5IkmVY+m98273+/ZRxJUpsG5L13L+WfJJJt2zb26Hz4bSu2bdt28puxbdu27W5Sdq/a9QDGI+ifgPqrEjgkEI0COOACqwo0ZCACvrCBAAOYxf44SM1giR0sowuRKA/tGEMfjKjBZCgDH9GoQD0yIW0COtLRicJxFKAOLoEDDFBAIQQh8OAGBFzkYxFGOPU2iQj0IBPMwOmQ1S/OQhhqEQoo8OGJDnB7+o9yDMIfMAl5CAHyC0NIUGIZJEBNRxTG/vcEBdKBVcECR3AD/DRYwAHUQgV8qkIsdNUz0tAUiFWIQlkFWnAJlt+BisIQGYKAwAI5AGCogkNfk+iAXxXSYANCiA7hIbYDryqgwGsAVoGISbggFvKA9FWwRnPgDiBCCUpAAysQ64fgoRzJAQl2mETPVGAC+kcgqhCJkyAFwB1rUAF9nxbUV1Vr8TavxJ9BUY6veIQVshGHyH+AlsjACjRQADCAn/gwRHZ9vXof7gft/rpVHCgKC1TjD15DjFpIAW1BhjWIqIMF5PiN+wEstOIJPqIctPkUn57m4ftdr5xOE8iNqgphGyl7utwmru3vww1ZIS3E4wOewgHwGfrj7XN6b7MfzWQH9u2QsJjBl/PW9nR9GQAQQIIYaIIHHGtX09otSmI7BgbQ2wVXbEEBH3DBgBdiQwIcIEIJ2hAcCIARDHzMYLSLjI3VZcPiLGbDH7GbqqLt4GJcnB6HOQzVSMIdlfBZFgfFzefz7Mh++jfWlp82t9Xn46fN/Oj/v1idRDm24DgSMMAXzGHI5Xe+39WF52o+tZvMV/aL+dR5Mt/9Pk8WRaECqVCNAhhoAW0WCJQ3rm/TlePxsKUp73Z21emhoTu+er7KO8phiRZQRwB2KAcUMqaFXNmFnAE6ULhDg1zgqAkWrWAJ90IamquAgwWoKqBVqArWrUJr2IEDJjASiDUEH0IFpUAaQA9YBTr24Noq1IVOHEOLClhVBy0kIR1UpCApkAquOEZeK4SiGcOIHB8HAIUaRcEe8iAHFAphgqFVIQirSIIEjcABU4gqpCC1Ah0N41A2K/igpVAODwD8oSoY4AZAOIqgRWw7hKMtsBEMIyDwsYxqzIE1BEE9AmCEqh1CsY7hsIA6EDvYYQAxGBpADxT04gSbyGoHFLYhCl1YQCVaYASgJjSjEsvQBWEH2q6qQEc6DCgEvyBGMbSIA6n+wAIA" />
-      <span class="business">Tiny Paws Grooming</span class="title">
-      <span class="tagline">Small Dogs Only – Expert Pampering for Your Little Furball!</span>
-      <span class="name_and_title">
-        <span class="name">Jane Doe</span><br />
-        <span class="title">Certified Small Dog Groomer</span>
-      </span>
-    </div>
-    <!-- Right Side -->
-    <div style="display:flex;flex-direction:column;width:40%;text-align:right;">
-      <a class="phone" href="tel:+15551234567">(555) 123-4567</a>
-      <a class="email" href="mailto:info@tinypawsgrooming.com">info@tinypawsgrooming.com</a>
-      <span class="online_presence"><a href="https://www.tinypawsgrooming.com">www.tinypawsgrooming.com</a> | <a href="https://www.instagram.com/TinyPawsGroom">@TinyPawsGroom</a></span>
-      <span class="address">Frisco, Texas</span>
-      <span class="placeholder_box"></span>
-    </div>
-  </div>
-</div>
+<div class="business_card_canvas">
+  <div class="business_card_with_bleed_area">
+    <div class="physical_business_card">
+      <div class="left_side">
+        <!-- small dog -->
+        <img class="logo" src="data:image/webp;base64,UklGRsQDAABXRUJQVlA4TLcDAAAvL8ALEHVIsa1t2ZZ9fe+Hu7tk6h9JXp1IYgwkZwRuETKNIWjWOTjV3d/nSyzS/QssB5IkmVY+m98273+/ZRxJUpsG5L13L+WfJJJt2zb26Hz4bSu2bdt28puxbdu27W5Sdq/a9QDGI+ifgPqrEjgkEI0COOACqwo0ZCACvrCBAAOYxf44SM1giR0sowuRKA/tGEMfjKjBZCgDH9GoQD0yIW0COtLRicJxFKAOLoEDDFBAIQQh8OAGBFzkYxFGOPU2iQj0IBPMwOmQ1S/OQhhqEQoo8OGJDnB7+o9yDMIfMAl5CAHyC0NIUGIZJEBNRxTG/vcEBdKBVcECR3AD/DRYwAHUQgV8qkIsdNUz0tAUiFWIQlkFWnAJlt+BisIQGYKAwAI5AGCogkNfk+iAXxXSYANCiA7hIbYDryqgwGsAVoGISbggFvKA9FWwRnPgDiBCCUpAAysQ64fgoRzJAQl2mETPVGAC+kcgqhCJkyAFwB1rUAF9nxbUV1Vr8TavxJ9BUY6veIQVshGHyH+AlsjACjRQADCAn/gwRHZ9vXof7gft/rpVHCgKC1TjD15DjFpIAW1BhjWIqIMF5PiN+wEstOIJPqIctPkUn57m4ftdr5xOE8iNqgphGyl7utwmru3vww1ZIS3E4wOewgHwGfrj7XN6b7MfzWQH9u2QsJjBl/PW9nR9GQAQQIIYaIIHHGtX09otSmI7BgbQ2wVXbEEBH3DBgBdiQwIcIEIJ2hAcCIARDHzMYLSLjI3VZcPiLGbDH7GbqqLt4GJcnB6HOQzVSMIdlfBZFgfFzefz7Mh++jfWlp82t9Xn46fN/Oj/v1idRDm24DgSMMAXzGHI5Xe+39WF52o+tZvMV/aL+dR5Mt/9Pk8WRaECqVCNAhhoAW0WCJQ3rm/TlePxsKUp73Z21emhoTu+er7KO8phiRZQRwB2KAcUMqaFXNmFnAE6ULhDg1zgqAkWrWAJ90IamquAgwWoKqBVqArWrUJr2IEDJjASiDUEH0IFpUAaQA9YBTr24Noq1IVOHEOLClhVBy0kIR1UpCApkAquOEZeK4SiGcOIHB8HAIUaRcEe8iAHFAphgqFVIQirSIIEjcABU4gqpCC1Ah0N41A2K/igpVAODwD8oSoY4AZAOIqgRWw7hKMtsBEMIyDwsYxqzIE1BEE9AmCEqh1CsY7hsIA6EDvYYQAxGBpADxT04gSbyGoHFLYhCl1YQCVaYASgJjSjEsvQBWEH2q6qQEc6DCgEvyBGMbSIA6n+wAIA" />
+        <span class="business">Tiny Paws Grooming</span class="title">
+        <span class="tagline">Small Dogs Only – Expert Pampering for Your Little Furball!</span>
+        <span class="name_and_title">
+          <span class="name">Jane Doe</span>
+          <span class="title">Certified Small Dog Groomer</span>
+        </span>
+      </div> <!-- left_side -->
+      <div class="right_side">
+        <a class="phone" href="tel:+15551234567">(555) 123-4567</a>
+        <a class="email" href="mailto:info@tinypawsgrooming.com">info@tinypawsgrooming.com</a>
+        <span class="online_presence"><a href="https://www.tinypawsgrooming.com">www.tinypawsgrooming.com</a> | <a href="https://www.instagram.com/TinyPawsGroom">@TinyPawsGroom</a></span>
+        <span class="address">Frisco, Texas</span>
+        <span class="placeholder_box"></span>
+      </div> <!-- right_side -->
+    </div> <!-- physical_business_card -->
+  </div> <!-- business_card_with_bleed_area -->
+</div> <!-- business_card_canvas -->

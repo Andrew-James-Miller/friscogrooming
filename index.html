@@ -6,7 +6,7 @@ Website https://www.andrewjamesmiller.org/
 (c) Copyright 2025 Andrew J. Miller. All rights reserved.
 -->
 <!-- On this webpage, 18 px is 0.125 (1/8) inches. Thus 144 px is 1 inch. I made this decision because I was not able to find a way to check the dimensions of the user's device, and this is close on my personal laptop, and rounded to a whole number for a simpler construction. -->
-<!--<meta http-equiv=refresh content=1 />-->
+<meta http-equiv=refresh content=1 />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
 :root {
@@ -97,7 +97,7 @@ div.business_card_canvas > div.business_card_with_bleed_area > div.physical_busi
 }
 /* 1.075 in from top */
 .tagline {
-  color: #FF69B4; /* Pink */
+  color: #E4A7C7; /* Matte, bright light pink */
   font-size: var(--font-size-medium);
   height: calc(var(--point-one-inch) * 3);
   margin-bottom: var(--point-one-inch);
@@ -129,11 +129,11 @@ div.business_card_canvas > div.business_card_with_bleed_area > div.physical_busi
 .address {
   font-size: var(--font-size-small);
 }
-.placeholder_box {
+.accent_element {
   align-self: end;
-  height: calc(var(--point-one-inch) * 3);
+  height: 30px;
   margin-top: auto;
-  width: calc(var(--point-one-inch) * 3);
+  width: 32px;
 }
 </style>
 <div class="business_card_canvas">
@@ -154,7 +154,7 @@ div.business_card_canvas > div.business_card_with_bleed_area > div.physical_busi
         <a class="email" href="mailto:info@tinypawsgrooming.com">info@tinypawsgrooming.com</a>
         <span class="online_presence"><a href="https://www.tinypawsgrooming.com">www.tinypawsgrooming.com</a> | <a href="https://www.instagram.com/TinyPawsGroom">@TinyPawsGroom</a></span>
         <span class="address">Frisco, Texas</span>
-        <span class="placeholder_box"></span>
+        <img class="accent_element" src="data:image/webp;base64,UklGRtgBAABXRUJQVlA4WAoAAAAQAAAAHwAAHQAAQUxQSBIBAAARkLNt2/m3A7pj257tTLZt5wPkyGTbKeZOtjt1MqYcnWxMndxR9/B7fs/7i4gJgH3cwetUiEkHb7NhnkuSJZYCkiwyo2ihaJQpnQZ2pWyTWYkA5WWTo2bHTBbNtk2SzbI1QQCgeCgBQJRljOQs0CVUABHCKNBHchKgdRE4S/IiAOyTPAsM0Op3WKAPEDKSANGvzQMAxbP3pecwPi19vChROEySxwXKt+tUvymraqB5StuXGiDdroDKfOCPUARg3FIAUA0kWxZhDbt4MwZY1Z0Hwq6ej4F2lobHYbpL41sG43TwrI6OBmiOOnNS89yZ95qHzjzWNDnTocFXR6D/LnyuA2reCt9hOvDyy2HYbj553ABbVlA4IKAAAACwBACdASogAB4APmk0mk0liIoDVBQDQGssRhZfmdviKZrgUW4DeYN4zAlOcI4AAP7317COAvx7fBxbdv7VtF7BVHuUgNvXSwzMrlqjpTHnENR3/bOZwnhqmjippotAFOw0NGEbAKBUnPLRHRTreK8F4QR9xmJJp2BJixA1J7Fi0lR1610t0FCAt65A6mTL0qpnfVMERxdV+qwi6uEEZAAA" />
       </div> <!-- right_side -->
     </div> <!-- physical_business_card -->
   </div> <!-- business_card_with_bleed_area -->
